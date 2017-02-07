@@ -13,27 +13,27 @@ public:
 	// constructor: converts a string representing a large int to a HugeInteger object
 	HugeInteger(const string&);
 	// Addition operator: HugeInteger + HugeInteger
-	// If overflow, print “Error: Addition overflow” and return 0 (as HugeInteger)
+	// If overflow, prints “Error: Addition overflow” and return 0 (as HugeInteger)
 	HugeInteger add(const HugeInteger &) const;
 	// Addition operator: HugeInteger + int
-	// If overflow, print “Error: Addition overflow” and return 0 (as HugeInteger)
+	// If overflow, prints “Error: Addition overflow” and return 0 (as HugeInteger)
 	HugeInteger add(int) const;
 	// Addition operator: HugeInteger + string representing large integer value
-	// If overflow, print “Error: Addition overflow” and return 0 (as HugeInteger)
+	// If overflow, prints “Error: Addition overflow” and return 0 (as HugeInteger)
 	HugeInteger add(const string &) const;
 	// subtraction operator (subtract op2 from *this); op1 – op2
 	// where op1 is a HugeInteger and op2 is also a HugeInteger
-	// if op1 < op2, print “Error: Tried to subtract larger value from smaller value”
+	// if op1 < op2, prints “Error: Tried to subtract larger value from smaller value”
 	// and return 0 (as HugeInteger).
 	HugeInteger subtract(const HugeInteger & op2) const;
 	// subtraction operator (subtract op2 from *this); op1 – op2
 	// where op1 is a HugeInteger and op2 is int
-	// if op1 < op2, print “Error: Tried to subtract larger value from smaller value”
+	// if op1 < op2, prints “Error: Tried to subtract larger value from smaller value”
 	// and return 0 (as HugeInteger).
 	HugeInteger subtract(int op2) const;
 	// subtraction operator; subtract op2 from *this); op1 – op2
 	// where op1 is a HugeInteger and op2 is a string representing large integer value
-	// if op1 < op2, print “Error: Tried to subtract larger value from smaller value”
+	// if op1 < op2, prints “Error: Tried to subtract larger value from smaller value”
 	// and return 0 (as HugeInteger).
 	HugeInteger subtract(const std::string & op2) const;
 	// comparison or predicate function between two HugeInteger operators.
