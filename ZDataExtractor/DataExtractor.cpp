@@ -36,7 +36,7 @@ int DataExtractor::romanToInt(string s)
 }
 
 
-vector<double> DataExtractor::split1(string x) {
+vector<double> DataExtractor::split1(string x) {	//splits a string into a vector of double values
 
 	stringstream iss;
 	vector<double> elems;
@@ -47,7 +47,7 @@ vector<double> DataExtractor::split1(string x) {
 	}
 	return elems;
 }
-vector<int> DataExtractor::split(string track) {
+vector<int> DataExtractor::split(string track) {	//splits a string into a vector of int values
 	stringstream iss;
 	vector<int> elems;
 	iss.str(track);
@@ -78,9 +78,9 @@ vector<string> DataExtractor::splitstringdetails(string line) {
 	return elems;
 }
 
-smatch sm;
+smatch sm;	// match for a regular expression
 //regex expre("^(\\d{1})\\.\\s(.*?)\\s\\d+\\s|^(\\d{2})\\.\\s(.*?)\\s\\d+\\s");
-regex expre("^(\\d{1})\\.\\s(.*?)\\s(\\d{2}\\.?\\d?)\\s?|^(\\d{2})\\.\\s(.*?)\\s(\\d{2}\\.?\\d?)\\s?");
+regex expre("^(\\d{1})\\.\\s(.*?)\\s(\\d{2}\\.?\\d?)\\s?|^(\\d{2})\\.\\s(.*?)\\s(\\d{2}\\.?\\d?)\\s?");	// expression to extract numbers from string during parsing
 regex extractnames("(\\d{1}\\.\\s.*?)(\\d+|\\.?).*?\\s(\\d{2}\\.?\\d?)\\s|(\\d{2}\\.\\s.*?)(\\d+|\\.?).*?\\s(\\d{2}\\.?\\d?)\\s");
 regex expre2("^\\d{1}\\.$|^\\d{2}\\.$");
 regex expre3("^1.\\s");
@@ -104,9 +104,9 @@ void DataExtractor::extractintoReadData(vector<vector<pair<string, DataExtractor
 	int i = FileDatas2.size() - 1;
 	for (int j = 0;j < FileDatas2[i].size();j++) {
 		string x = FileDatas2[i][j].second.ptwt;
-		regex pt("[A-Z]?[a-z]+?");
-		regex htwt("H.Wt-\\s(.*)");
-		regex directptwt("(?=)(\\d+\\-.*)");
+		regex pt("[A-Z]?[a-z]+?");// extract if it matches A-Z or small a-z
+		regex htwt("H.Wt-\\s(.*)");	//extracts string if it matches anything followed by H.Wt.
+		regex directptwt("(?=)(\\d+\\-.*)"); // positive lookahead to head a number followed by - followed by anything
 		regex pt2("[A-Z]+,[A-Z]+,[A-Z]+");
 		smatch level1;
 		smatch level2;
@@ -239,7 +239,7 @@ void DataExtractor::recorddata(DataExtractor& obj, string& line, fstream& x1, ve
 		else {
 			
 			if (line != "") {
-				regex rating("R\\s(\\d{1})\\d\\d?\\/|R\\s(\\d{2})|R\\s\(\\d{3})|R\\s\(\\d{3})$|R\\s(\\d{1})\\s");
+				regex rating("R\\s(\\d{1})\\d\\d?\\/|R\\s(\\d{2})|R\\s\(\\d{3})|R\\s\(\\d{3})$|R\\s(\\d{1})\\s"); // extracts the rate of the element following his regex pattern
 				//regex winprefix("(?=)H\.Wt-(.*?)[A-Za-z]");
 				//regex winprefix("(?=)H.Wt-(.*?)[A-Za-z]|(?=)H.Wt-(.*?)\\s?(.*)");
 				regex winprefix("(?=)H.Wt-\\s((.*?))\\s[A-Za-z]|(?=)H.Wt-\\s(.*?)$\\s?(.*)|H.Wt-\\s(.*)");
